@@ -28,7 +28,7 @@ app.addStudent = function(){
   var email = '<p>'+student.email+'</p>';
   var blog = '<p>'+student.blog+'</p>';
   var location = '<p>'+student.location+'</p>';
-  var url = '<p>'+student.url+'</p>';
+  var url = '<a href='+ student.url +'>'+student.url+'</p>';
 
   var followers = '<p>'+student.followers+'</p>';
   var following = '<p>'+student.following+'</p>';
