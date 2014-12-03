@@ -2,9 +2,10 @@ var app = {};
 
 app.init = function(){
   this.students = [];
+  this.studentsRepo = [];
 };
 
-app.fetch = function(username){
+app.fetchUser = function(username){
   $.ajax({
     url: 'https://api.github.com/users/' + username,
     type: 'GET',
@@ -19,10 +20,25 @@ app.fetch = function(username){
   });
 };
 
+app.fetchUserRepo = function(username){
+  $.ajax({
+    url: 'https://api.github.com/users/' + username + '/repos',
+    type: 'GET',
+    contentType: 'application/json',
+    success: function(data){
+      data.forEach(function (repo) {
+        app.studentsRepo.push(repo);
+      });
+      app.addStudentRepo();
+    },
+    error: function(data){
+      console.error('something went wrong');
+    },
+  });
+};
+
 app.addStudent = function(){
   var student = app.students[0];
-
-  console.log(student);
 
   var name = '<p>'+student.name+'</p>';
   var email = '<p>'+student.email+'</p>';
@@ -41,14 +57,22 @@ app.addStudent = function(){
   $('#studentMetrics').append(followers + following + publicRepos);
 };
 
+app.addStudentRepo = function(){
+  // var studentRepo = app.studentRepo[0];
+
+  app.studentsRepo.forEach(function(repo){
+    var name = '<p>' + repo.name + '<p>';
+    $('#studentRepos').append(name);
+  });
+};
+
 $(document).ready(function(){
   app.init();
 
   $('.search').on('click', function(e){
     e.preventDefault();
-
     var $username = $('#username').val();
-
-    app.fetch($username);
+    app.fetchUser($username);
+    app.fetchUserRepo($username);
   });
 });
