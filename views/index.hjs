@@ -44,5 +44,11 @@
       </div>
     </nav>
 
+    <div class="container">
+      <h1>Student Info</h1>
+      <div id="studentInfo"></div>
+      <div id="studentMetrics"></div>
+    </div>
+
   </body>
 </html>
