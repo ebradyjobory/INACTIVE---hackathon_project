@@ -7,19 +7,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <script src="javascripts/angular.js"></script>
-    <script src="controller/mentorCtrl.js"></script>
+    <title>2014-10-group-hackathon</title>
 
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css' />
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="js/index.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="js/index.js"></script>
 
   </head>
 
-  <body ng-app="app">
+  <body>
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
@@ -45,24 +44,20 @@
       </div>
     </nav>
 
-    <div class="container" ng-controller="MentorCtrl">
-      <h1>Mentor Info</h1>
-      {{ information }}
-      <h3>Mentor Bio</h3>
-      <table class="table">
-        <thead>
-          <th>Name of student</th>
-          <th>Subject</th>
-        </thead>
-        <tbody ng-repeat="student in students">
-          <td>{{ student.name }}</td>
-          <td>{{ student.subject }}</td>
-        </tbody>
-      </table>
-      <h3>Reputation</h3> <!-- counter for now -->
-      <div id="mentorImage"></div>
-      <div id="mentorInfo"></div>
-      <div id="mentorMetrics"></div>
+    <div class="container">
+    <form role="form">
+      <div class="form-group">
+        <label for="username">Enter username</label>
+        <input type="text" class="form-control" id="username" placeholder="e.g. essamjoubori">
+      </div>
+      <button type="submit" class="btn btn-default search">Search</button>
+    </form>
+
+      <h1>Student Info</h1>
+      <div id="studentImage"></div>
+      <div id="studentInfo"></div>
+      <div id="studentMetrics"></div>
     </div>
+
   </body>
 </html>
