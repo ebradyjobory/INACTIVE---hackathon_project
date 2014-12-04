@@ -58,6 +58,7 @@
           <td>{{ student.name }}</td>
           <td>{{ student.subject }}</td>
         </tbody>
+        
       </table>
       <h3>Reputation</h3> <!-- counter for now -->
       <div id="mentorImage"></div>
