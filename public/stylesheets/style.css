@@ -6,3 +6,16 @@
 a {
   color: #00B7FF;
 }*/
+
+.mentor-img  {
+  float: right;
+  margin-top: 50px;
+}
+
+#mentorInfo {
+  margin-top: 100px;
+}
+
+body {
+  background: #ecf0f1;
+}

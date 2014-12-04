@@ -1,10 +1,54 @@
 $(function(){
-
+  // Hendrixer --->>>Scott Moss
   var mentor = {};
 
   mentor.init = function(){
-
+    this.mentors = [];
+    this.reputation = 6;
   }
+
+  mentor.fetchMentor = function(username){
+    $.ajax({
+      url: 'https://api.github.com/users/' + username,
+      type: 'GET',
+      contentType: 'application/json',
+      success: function(data){
+        console.log("SUCCESS")
+        mentor.mentors.push(data);
+        console.log(mentor)
+        mentor.addMentor(mentor.mentors);
+      },
+      error: function(data){
+        console.error('something went wrong');
+      },
+    });
+  };
+
+  mentor.addMentor = function(data){
+  var mentor = data[0];
+
+  var name = '<h1>'+mentor.name+'</h1>';
+  var email = '<a href=mailto:'+mentor.email+'>'+mentor.email+'</a>';
+  var blog = '<p>'+mentor.blog+'</p>';
+  var location = '<p>'+mentor.location+'</p>';
+  var url = '<a href='+ mentor.url +'>'+mentor.url+'</p>';
+
+  var followers = '<p> <strong>Followers: </strong> '+mentor.followers+'</p>';
+  var following = '<p> <strong>Following: </strong>'+mentor.following+'</p>';
+  var publicRepos = '<p> <strong> Repos: </strong>'+mentor.public_repos+'</p>';
+
+  var image = '<img class="mentor-img" src=' + mentor.avatar_url +'>';
+
+  $('#mentorImage').append(image);
+  $('#mentorInfo').append(name + email + blog + location + url);
+  $('#mentorMetrics').append(followers + following + publicRepos);
+  $('#totalReputation').show();
+  $('table').show();
+  $('#studentsTable').show();
+  
+};
+
+
   //dummy data
   var student1 = {
     name: "Essam",
@@ -56,4 +100,14 @@ $(function(){
       }
     }  
   });
+
+
+  $('.search').on('click', function(e){
+    e.preventDefault();
+    var $mentorName = $('#mentorName').val();
+    mentor.fetchMentor($mentorName);
+  });
+
+  mentor.init();
+
 });
