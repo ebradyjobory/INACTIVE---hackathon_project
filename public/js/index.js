@@ -69,6 +69,35 @@ app.addStudentRepo = function(){
 $(document).ready(function(){
   app.init();
 
+  var githubName = [
+    'therobinkim',
+    'brettdewoody',
+    'elderbas',
+    'davemun',
+    'drabinowitz',
+    'essamjoubori',
+    'Cheerazar',
+    'jDeppen',
+    'JulieMarie',
+    'linglau5000',
+    'nicmitchell',
+    'plauer',
+    'mcpike',
+    'fr332th1nk',
+    'rohanagrawal',
+    'roryc89',
+    'sjstebbins',
+    'victorleungtw'
+  ];
+
+  // for (var i = 0; i < githubName.length; i++) {
+    app.fetchUser(githubName[0]);
+    app.fetchUserRepo(githubName[0]);
+  // }
+
+  // app.fetchUser(githubName[0]);
+  // app.fetchUserRepo(githubName[0]);
+
   $('.search').on('click', function(e){
     e.preventDefault();
     var $username = $('#username').val();

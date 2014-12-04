@@ -31,7 +31,7 @@ $(function(){
         showStudentsClicked = true;
       }
     }
-    
+
   });
   var reputationCount = [];
   var clickedUp = false;
@@ -54,6 +54,6 @@ $(function(){
         reputationCount.pop('whohoo');
         $('#reputation').html(counter);
       }
-    }  
+    }
   });
 });
