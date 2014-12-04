@@ -16,6 +16,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="js/index.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="js/mentor.js"></script>
 
   </head>
 
@@ -47,20 +48,28 @@
 
     <div class="container" ng-controller="MentorCtrl">
       <h1>Mentor Info</h1>
-      {{ information }}
+      <p>Mentor information here ------------
+      ------------------------------------
+      ------------------------------------</p>
       <h3>Mentor Bio</h3>
-      <table class="table">
+      <p>Mentor bio here ------------
+      ------------------------------------
+      ------------------------------------</p>
+      <button class="btn btn-primary" id="showStudents">Show Students</button>
+      <table class="table table-striped" style="width: 50%">
         <thead>
-          <th>Name of student</th>
-          <th>Subject</th>
+          <tr>
+            <th>Name of student</th>
+            <th>Subject</th>
+          </tr>
         </thead>
-        <tbody ng-repeat="student in students">
-          <td>{{ student.name }}</td>
-          <td>{{ student.subject }}</td>
+        <tbody>
         </tbody>
         
       </table>
-      <h3>Reputation</h3> <!-- counter for now -->
+      <h3>Reputation: <span id="reputation"></span></h3> <!-- counter for now -->
+      <button class="btn btn-success" id="up">Up</button>
+      <button class="btn btn-danger" id="down">Down</button>
       <div id="mentorImage"></div>
       <div id="mentorInfo"></div>
       <div id="mentorMetrics"></div>
