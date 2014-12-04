@@ -75,7 +75,7 @@ $(function(){
         showStudentsClicked = true;
       }
     }
-    
+
   });
   var reputationCount = [];
   var clickedUp = false;
@@ -98,8 +98,9 @@ $(function(){
         reputationCount.pop('whohoo');
         $('#reputation').html(counter);
       }
-    }  
+    }
   });
+<<<<<<< HEAD
 
 
   $('.search').on('click', function(e){
@@ -111,3 +112,6 @@ $(function(){
   mentor.init();
 
 });
+=======
+});
+>>>>>>> 0933042c6a031b05bf0bb4274bf6947282851b57
